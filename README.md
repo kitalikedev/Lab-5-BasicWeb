@@ -42,7 +42,15 @@ Mở `http://localhost:3000`.
 npm run build
 ```
 
-Kết quả nằm trong thư mục `nextjs-blog/out/`, gồm `index.html` và `posts/*.html`. Có thể đưa thư mục này lên GitHub Pages, Netlify hoặc Cloudflare Pages. Repo này chưa được triển khai.
+Kết quả nằm trong thư mục `nextjs-blog/out/`, gồm `index.html` và `posts/*.html`. Có thể đưa thư mục này lên GitHub Pages, Netlify hoặc Cloudflare Pages.
+
+## Triển khai lên GitHub Pages
+
+Workflow `.github/workflows/pages.yml` tự build và đăng thư mục `out/` mỗi khi push lên nhánh `main`. Địa chỉ trang: `https://kitalikedev.github.io/Lab-5-BasicWeb/`.
+
+- Lần đầu cần bật Pages: vào Settings, Pages, mục Source chọn GitHub Actions.
+- Vì site nằm dưới `/Lab-5-BasicWeb/`, workflow đặt biến `BASE_PATH=/Lab-5-BasicWeb` và `next.config.mjs` dùng nó làm `basePath`. Chạy local thì không có biến này nên không bị ảnh hưởng.
+- Nếu đổi tên repo, cần sửa `BASE_PATH` trong workflow cho khớp.
 
 ## Cấu trúc
 
